@@ -1,0 +1,10 @@
+services:
+  app:
+    build: .
+    devices:
+      - /dev/kfd
+      - /dev/dri
+    ports:
+      - 9000:9000/tcp
+    volumes:
+      - ../../storage/easy-diffusion:/app/easy-diffusion:Z
