@@ -7,7 +7,8 @@ services:
     ports:
       - 9000:9000/tcp
     volumes:
-      - ~/storage/easy-diffusion:/app/easy-diffusion:Z
+      - ~/storage/easy-diffusion/data:/app/easy-diffusion:Z
+      - ~/storage/easy-diffusion/output:/output:z
     environment:
       - PYTORCH_HIP_ALLOC_CONF=garbage_collection_threshold:0.9,max_split_size_mb:512
       - PYTORCH_CUDA_ALLOC_CONF=garbage_collection_threshold:0.9,max_split_size_mb:512
