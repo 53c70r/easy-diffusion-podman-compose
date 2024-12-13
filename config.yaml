@@ -18,7 +18,7 @@ update_branch: main
 # Windows:
 # force_save_path: C:\\Easy Diffusion Images\\
 # Linux:
-# force_save_path: /data/easy-diffusion-images/
+force_save_path: /output/
 use_v3_engine: true
 models_dir: /app/easy-diffusion/models
 model:
