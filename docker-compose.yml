@@ -7,4 +7,19 @@ services:
     ports:
       - 9000:9000/tcp
     volumes:
-      - ../../storage/easy-diffusion:/app/easy-diffusion:Z
+      - ~/storage/easy-diffusion:/app/easy-diffusion:Z
+    environment:
+      - PYTORCH_HIP_ALLOC_CONF=garbage_collection_threshold:0.9,max_split_size_mb:512
+      - PYTORCH_CUDA_ALLOC_CONF=garbage_collection_threshold:0.9,max_split_size_mb:512
+
+  pigallery2:
+    image: bpatrik/pigallery2:latest
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ~/storage/easy-diffusion/pigallery2/config:/app/data/config:Z
+      - ~/storage/easy-diffusion/pigallery2/db:/app/data/db:Z
+      - ~/storage/easy-diffusion/output:/app/data/images:ro,z
+      - ~/storage/easy-diffusion/pigallery2/tmp:/app/data/tmp:Z
+    ports:
+      - 9001:80
