@@ -1,4 +1,4 @@
-FROM fedora:latest
+FROM fedora:41
 RUN dnf install -y unzip wget curl which bzip2 pip patch mesa-libGL rocm-hip rocm-opencl rocm-clinfo
 WORKDIR /app
 CMD if [ -z "$(ls -A /app/easy-diffusion)" ]; \
